@@ -1,2 +1,2 @@
-# intedge
+# quantiedge
 IIoT Platform for OEE, Anomaly Detection and Predictive Maintenance
