@@ -1,40 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
   
   const [response, setResponse] = useState('');
-  const API_KEY = "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";
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.post(
-          'https://api.openai.com/v1/chat/completions',
-          {
-            "model": "gpt-3.5-turbo",
-            "messages": [
-              {
-                "role": "user",
-                "content": "How to process CSV files and/ or JSON data using OpenAI APIs"
-              }
-            ]
-          },
-          { headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${API_KEY}`,
-            
-          } },
-        );
-        setResponse(response.data.choices[0].message.content);
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    };
-    fetchData();
-  }, );
+  const handleClick = () => {
+    fetch('http://localhost:3001/calculate-oee', {
+      method: 'POST',
+    })
+      .then(response => response.json())
+      .then(data => setResponse(data.result))
+      .catch(error => console.error('Error:', error));
+  };
   
   return (
     <div className="App">
@@ -56,7 +33,8 @@ function App() {
           <div className="card">CNC Machine</div>
         </div>
         <div>
-      <h1>OpenAI React Demo</h1>
+      <h1>Machine OEE Demo</h1>
+      <button onClick={handleClick}>Click Here for OEE</button>
       <p>{response}</p>
     </div>
       </header>
