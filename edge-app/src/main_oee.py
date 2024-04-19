@@ -12,5 +12,5 @@ with open (file,"r") as f1:
     spec = JsonSpec (dict_=data,max_value_length=4000)
     toolkit = JsonToolkit (spec = spec)
     agent=create_json_agent(llm=ChatOpenAI(temperature=0,model="gpt-4"),toolkit=toolkit,max_iterations=1000,verbose=True)
-    result = agent.run("What is the ActualRunTime in the attached Data")
+    result = agent.run("Calculate the OEE of the data and Return only Final Answer")
     print(result)

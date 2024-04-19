@@ -8,9 +8,9 @@ function App() {
     fetch('http://localhost:3001/calculate-oee', {
       method: 'POST',
     })
-      .then(response => response.json())
-      .then(data => setResponse(data.result))
-      .catch(error => console.error('Error:', error));
+    .then(response => response.json())
+    .then(data => setResponse(data.result))
+    .catch(error => console.error('Error:', error));
   };
   
   return (
