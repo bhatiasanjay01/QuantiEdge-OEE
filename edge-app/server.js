@@ -10,7 +10,7 @@ const port = 3001;
 app.use(cors());
 
 app.post('/calculate-oee', (req, res) => {
-  const pythonProcess = spawn('python3', ['/Users/Sanjay.Bhatia/Documents/QuantiEdge_Code/edge-app/src/main_oee.py']);
+  const pythonProcess = spawn('python3', ['/Users/Sandhya.Bhatia/code/quantiedge/edge-app/src/main_oee.py']);
 
   let responseData = '';
 
