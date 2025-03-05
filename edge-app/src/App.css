@@ -1,61 +1,57 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
 
-.App-header {
-  background-color: #f1f1f1;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
-}
-
-.dropdown {
-  margin: 20px;
-}
-
-.card-container {
-  display: flex;
-  justify-content: center;
-}
-
-.card {
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.dashboard {
   padding: 20px;
-  margin: 10px;
-  width: 150px;
-  text-align: center;
 }
 
-/* Style for select dropdown */
-select {
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.dashboard h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-/* Existing styles... */
+.form-control {
+  margin-bottom: 20px;
+}
 
-.dropzone {
-  flex: 1;
+.navigation-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  border-width: 2px;
-  border-radius: 2px;
-  border-color: #eeeeee;
-  border-style: dashed;
-  background-color: #fafafa;
-  color: #bdbdbd;
-  outline: none;
-  transition: border .24s ease-in-out;
-  margin: 10px;
-  cursor: pointer;
+  justify-content: space-around;
+  margin: 20px 0;
 }
 
+.oee-panel, .alerts-panel, .on-demand-panel {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.oee-panel h2, .alerts-panel h2, .on-demand-panel h2 {
+  margin-bottom: 20px;
+}
+
+.oee-section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.oee-section div, .alert {
+  text-align: left;
+}
+
+.alert {
+  margin-bottom: 10px;
+}
+
+  

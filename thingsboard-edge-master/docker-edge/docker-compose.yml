@@ -1,0 +1,55 @@
+#
+# Copyright © 2016-2024 The Thingsboard Authors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+
+version: '3.8'
+services:
+  mytbedge:
+    restart: always
+    image: "thingsboard/tb-edge:3.7.0EDGE"
+    ports:
+      - "8080:8080"
+      - "1883:1883"
+      - "5683-5688:5683-5688/udp"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/tb-edge
+      CLOUD_ROUTING_KEY: b30a301a-d181-1133-afba-f4f2ecf39571
+      CLOUD_ROUTING_SECRET: 1005xegsq2glbboxljv9
+      CLOUD_RPC_HOST: demo.thingsboard.io
+      CLOUD_RPC_PORT: 7070
+      CLOUD_RPC_SSL_ENABLED: false
+    volumes:
+      - tb-edge-data:/data
+      - tb-edge-logs:/var/log/tb-edge
+    
+  postgres:
+    restart: always
+    image: "postgres:15"
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_DB: tb-edge
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - tb-edge-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  tb-edge-data:
+    name: tb-edge-data
+  tb-edge-logs:
+    name: tb-edge-logs
+  tb-edge-postgres-data:
+    name: tb-edge-postgres-data
